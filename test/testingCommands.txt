@@ -1,0 +1,9 @@
+
+Used to make an HTTP request to a server running on your local machine
+$ curl localhost:<port>
+
+This handy command is used to list all network services currently
+listening for incoming connections on your system.
+$ lsof -i | grep LISTEN
+
+
