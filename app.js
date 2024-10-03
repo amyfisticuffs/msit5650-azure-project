@@ -19,23 +19,20 @@ const config = {
 }
 
 console.log("Starting...");
-connectAndQuery();
+var rset = connectAndQuery();
 
 var app = express();
 app.use(express.static('public')); // this is added!
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// index page
+app.get('/', function(req, res) {
+  res.render('pages/index');
+});
+
 app.listen(3000, () => {
  console.log("Server running on port 3000");
-});
-app.get("/", (req, res) => {
- res.send('Hello World!')
-});
-app.get("/showfile", (req, res, next) => { 
- 
- const __filename = fileURLToPath(import.meta.url);
- const __dirname = path.dirname(__filename);
- const _retfile = path.join(__dirname, 'index.html');
-
- res.sendFile(_retfile);
 });
 
 async function connectAndQuery() {
@@ -62,6 +59,8 @@ async function connectAndQuery() {
 
         // close connection only when we're certain application is finished
         poolConnection.close();
+	return resultSet.recordset;
+	
     } catch (err) {
         console.error(err.message);
     }
