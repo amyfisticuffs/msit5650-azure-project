@@ -28,15 +28,14 @@
 
     <section class="demo__section">
         <div class="demo__input-area">
-            
             <fieldset class="demo__option-field">
                 <legend>Choose a sample image:</legend>
-                
-                <!-- Iterate over imageUrls array and insert each image into the HTML -->
-                <% imageUrls.forEach(image => { %>
-                    <img class="demo__option-img" src="<%= image.ResourceURL %>" alt="Image">
+
+		<!-- Iterate over imageUrls array and insert each image into the HTML -->
+                <% images.forEach(function(image)  { %>
+                   <img class="demo__option-img" src="<%= image %>" alt="Image">
                 <% }); %>
-        
+               
                 <button class="take-photo">Take a photo!</button>
                 <br>
                 <label class="demo__input-label">

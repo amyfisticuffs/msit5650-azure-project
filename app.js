@@ -18,17 +18,23 @@ const config = {
     }
 }
 
+const images = [];
 console.log("Starting...");
-var rset = connectAndQuery();
 
 var app = express();
 app.use(express.static('public')); // this is added!
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+var rset = connectAndQuery();
 
 // index page
 app.get('/', function(req, res) {
-  res.render('pages/index');
+  // res.render('pages/index');
+  // Pass the URLs to the EJS template for rendering
+  res.render("pages/index", { 
+	  images : images
+  } );
+
 });
 
 app.listen(3000, () => {
@@ -55,13 +61,15 @@ async function connectAndQuery() {
         // ouput row contents from default record set
         resultSet.recordset.forEach(row => {
             console.log(row.ResourceURL);
+            images.push(row.ResourceURL);
         });
 
         // close connection only when we're certain application is finished
         poolConnection.close();
-	return resultSet.recordset;
+	return resultSet;
 	
     } catch (err) {
         console.error(err.message);
     }
 }
+
