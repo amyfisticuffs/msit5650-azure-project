@@ -28,15 +28,25 @@
 
     <section class="demo__section">
         <div class="demo__input-area">
-            
+
             <fieldset class="demo__option-field">
                 <legend>Choose a sample image:</legend>
-                
-                <!-- Iterate over imageUrls array and insert each image into the HTML -->
-                <% imageUrls.forEach(image => { %>
-                    <img class="demo__option-img" src="<%= image.ResourceURL %>" alt="Image">
-                <% }); %>
-        
+                <img class="demo__option-img"
+                    src="https://apstorageahf.blob.core.windows.net/ap-storage-container/saint_george_and_the_dragon_1966.1.1.jpg"
+                    alt="St. George and the Dragon">
+                <img class="demo__option-img"
+                    src="https://apstorageahf.blob.core.windows.net/ap-storage-container/american_falls_from_goat_island_2018.177.194.jpg"
+                    alt="Niagra Falls">
+                <img class="demo__option-img"
+                    src="https://apstorageahf.blob.core.windows.net/ap-storage-container/wild_strawberries_and_a_carnation_in_a_wan-li_bowl_2013.1.1.jpg"
+                    alt="Strawberries">
+                <img class="demo__option-img"
+                    src="https://apstorageahf.blob.core.windows.net/ap-storage-container/austria-6934162_1280.jpg"
+                    alt="Austria">
+                <img class="demo__option-img"
+                    src="https://apstorageahf.blob.core.windows.net/ap-storage-container/mountains-7466852_640.jpg"
+                    alt="Yosemite">
+
                 <button class="take-photo">Take a photo!</button>
                 <br>
                 <label class="demo__input-label">
