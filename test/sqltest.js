@@ -2,7 +2,7 @@ const sql = require('mssql');
 
 const config = {
     user: 'user', // better stored in an app setting such as process.env.DB_USER
-    password: 'SuperSecurePassword', // better stored in an app setting such as process.env.DB_PASSWORD
+    password: 'password', // better stored in an app setting such as process.env.DB_PASSWORD
     server: 'server.database.windows.net', // better stored in an app setting such as process.env.DB_SERVER
     port: 1433, // optional, defaults to 1433, better stored in an app setting such as process.env.DB_PORT
     database: 'ap-database', // better stored in an app setting such as process.env.DB_NAME
