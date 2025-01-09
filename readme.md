@@ -7,8 +7,6 @@ A **Load-Balanced NGINX Reverse Proxy** setup with:
 - A **Virtual Network** with **NAT Gateway** and backend subnet  
 - **Azure Backup** for virtual machines in the backend pool
 
-This project showcases a scalable, secure, and resilient architecture leveraging Azure services to deliver dynamic web content.
-
 ## App Features
 
 This app enables users to apply Instagram-like filters to images, with options to:
@@ -23,3 +21,25 @@ This app enables users to apply Instagram-like filters to images, with options t
   - **Pixabay**, under the Pixabay content license (free to use without attribution).
 
 Acknowledgment and appreciation go to the creators of these resources.
+
+## Deployment Overview
+
+This deployment features a scalable architecture with:
+
+- **Load Balancer**: Distributes incoming HTTP traffic to two backend VMs.
+- **NGINX Servers**: Each VM runs an NGINX server as a reverse proxy, forwarding HTTP requests to a Node.js server.
+- **Node.js Application**: 
+  - Retrieves image URLs for the landing page from an **Azure SQL Database**.
+  - Uses **Embedded JavaScript (EJS)** with **Express.js** to dynamically generate HTML.
+  - Accesses the SQL database via a **NAT Gateway**.
+
+### Image and Data Handling
+- Images are served directly from **Azure Blob Storage** to the client browser.
+- **Azure Backup** is implemented to protect the VMs against ransomware and accidental data loss.
+
+### Architectural Diagram
+![alt text](https://amyfisticuffs.github.io/images/azure-arch.jpeg)
+
+### Information Flow Diagram
+![alt text](https://amyfisticuffs.github.io/images/azure-info-flow.jpeg)
+
